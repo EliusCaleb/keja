@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
     def not_found
-      render json: { error: 'not_found' }
+      render json: { errors: ['not_found'] }
     end
   
     def authorize_request

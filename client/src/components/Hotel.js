@@ -3,6 +3,7 @@ import "../styles/hotel.css";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
 import Footer from '../pages/Footer';
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
@@ -14,7 +15,12 @@ import {
 function Hotel() {
     const [slideNumber, setSlideNumber] = useState(0);
     const [open, setOpen] = useState(false);
-  
+    
+    const navigate = useNavigate();
+    
+    function handleClick(e){
+        navigate('/') 
+    }
     const photos = [
       {
         src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -57,6 +63,7 @@ function Hotel() {
       <div>
         <Navbar />
         <Header type="list" />
+       
         <div className="hotelContainer">
           {open && (
             <div className="slider">
@@ -80,7 +87,9 @@ function Hotel() {
               />
             </div>
           )}
+           <button className="btn btn-info"  onClick={handleClick}>Go Back</button>
           <div className="hotelWrapper">
+           
             <button className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">Tower Street Apartments</h1>
             <div className="hotelAddress">
