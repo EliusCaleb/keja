@@ -1,20 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../pages/Navbar'
 import Header from '../pages/Header'
 import Featured from '../pages/Featured'
-import PropertyList from '../pages/PropertyList'
 import Footer from '../pages/Footer'
 import "../styles/home.css"
 
 function Home() {
+  const [hotels, setHotels] = useState([]);
+    
+
+    useEffect(() => {
+        fetch('/hotels')
+            .then(res => res.json())
+            .then(data => setHotels(data))
+
+    }, []);
+
     return (
         <div>
           <Navbar />
           <Header/>
           <div className="homeContainer">
-            <Featured/>
+            <Featured  hotels={hotels}/>
             <h1 className="homeTitle">Browse by property type</h1>
-            <PropertyList/>
             <hr  className='line'/>
             <Footer/>
           </div>

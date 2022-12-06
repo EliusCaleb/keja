@@ -1,44 +1,43 @@
 import "../styles/featured.css"
+import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-function Featured() {
+
+function Featured({hotels}) {
+  console.log(hotels)
+
     return (
-        
-        <div className="featured">
-          <div className="featuredItem">
-            <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
-              alt=""
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Kampala</h1>
-              <h2>60 properties</h2>
-            </div>
-          </div>
-          
-          <div className="featuredItem">
-            <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
-              alt=""
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Nairobi</h1>
-              <h2>300properties</h2>
-            </div>
-          </div>
-          <div className="featuredItem">
-            <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
-              alt=""
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Dodoma</h1>
-              <h2>250properties</h2>
-            </div>
-          </div>
-        </div>
+      <>
+      <h2 className='text-center text-success my-5'>Hotels</h2>
+       <hr/>
+      <div className='container my-5 py-5'key={hotels.id}>
+          <div className='row d-flex justify-content-center' key={hotels.id}>
+                    
+                      {hotels.map((hotel) => {
+                          return (
+                              <>
+                              <div className='col-md-4' key={hotel.id} >
+                              <div className="card text-center"  key={hotel.id}>
+                              <img src={hotel.photo} className="card-img-top" alt="..." />
+                                  <div className="card-body"key={hotel.id}>
+                                      <h5 className="card-title">{hotel.name}</h5>
+                                      <p className="card-text">{hotel.city}</p>
+                                      <NavLink className='btn btn-success'to={`/hotels/${hotel.id}`}>View</NavLink>
+                                  </div>
+                              </div>
+                              </div>
+                             
+                              </>
+                          )
+                      })}
+
+                  </div>
+
+              </div>
+
+
+  </>
+       
       );
     };
 

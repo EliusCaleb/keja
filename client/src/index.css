@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+form {
+  background-color: #fff8e7;
+  border: 1px solid salmon;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin:  auto;
+  margin-top: 20px;
+  padding: 0 1rem 1rem;
+}
+
+form input {
+  margin: 0.25rem 0;
+}
+
+form button[type="submit"] {
+  width: 40%;
+}

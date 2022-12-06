@@ -15,5 +15,21 @@ class ApplicationController < ActionController::API
       rescue JWT::DecodeError => e
         render json: { errors: e.message }, status: :unauthorized
       end
-    end
+    end  
+
+    # rescue_from ActiveRecord::RecordInvalid, with: :render_errors
+    # before_action :authorize
+  
+  
+    #  private
+    # def authorize
+    #   @current_user = User.find_by(id: session[:user_id])
+    #   return render json: { errors: ["Not authorized"] }, status: :unauthorized unless  @current_user
+    # end
+  
+    # def render_errors(exception)
+    #   render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+    # end
+
+
 end
