@@ -1,118 +1,117 @@
 
-import React,{useState} from 'react'
-import "../styles/list.css";
-import Navbar from '../pages/Navbar';
-import Header from '../pages/Header';
-
-import { useLocation } from "react-router-dom"
-import { format } from "date-fns";
-import { DateRange } from "react-date-range";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { Button, Error, FormField, Input, Label } from "../styles";
 
 function Room() {
-    const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
-  const [openDate, setOpenDate] = useState(false);
-  const [options, setOptions] = useState(location.state.options);
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const [title, setTitle] = useState("Guest House");
+  const [price, setPrice] = useState(4)
+  const [ max_people,setMaxPeople ] = useState(4)
+  const [room_number, setRoomNumber] = useState(4)
+  const [ description, setDescription] = useState("")
+  const [ hotel_id, setHotelId]= useState(3)
 
-  return (<div>
-    <Navbar />
-    <Header type="list" />
-    <div className="listContainer">
-      <div className="listWrapper">
-        <div className="listSearch">
-          <h1 className="lsTitle">Search</h1>
-          <div className="lsItem">
-            <label>Destination</label>
-            <input placeholder={destination} type="text" />
-          </div>
-          <div className="lsItem">
-            <label>Check-in Date</label>
-            <span onClick={() => setOpenDate(!openDate)}>{`${format(
-              date[0].startDate,
-              "MM/dd/yyyy"
-            )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
-            {openDate && (
-              <DateRange
-                onChange={(item) => setDate([item.selection])}
-                minDate={new Date()}
-                ranges={date}
-              />
-            )}
-          </div>
-          <div className="lsItem">
-            <label>Options</label>
-            <div className="lsOptions">
-              <div className="lsOptionItem">
-                <span className="lsOptionText">
-                  Min price <small>per night</small>
-                </span>
-                <input type="number" className="lsOptionInput" />
-              </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">
-                  Max price <small>per night</small>
-                </span>
-                <input type="number" className="lsOptionInput" />
-              </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">Adult</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="lsOptionInput"
-                  placeholder={options.adult}
-                />
-              </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">Children</span>
-                <input
-                  type="number"
-                  min={0}
-                  className="lsOptionInput"
-                  placeholder={options.children}
-                />
-              </div>
-              <div className="lsOptionItem">
-                <span className="lsOptionText">Room</span>
-                <input
-                  type="number"
-                  min={1}
-                  className="lsOptionInput"
-                  placeholder={options.room}
-                />
-              </div>
-            </div>
-          </div>
-          <button>Search</button>
-        </div>
-       
-      </div>
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("/rooms", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        price,
+        max_people,
+        room_number,
+        description,
+        hotel_id,
+
+      }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        navigate("/rooms");  
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+          <FormField>
+            <Label htmlFor="title">Title</Label>
+            <Input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="price">Price</Label>
+            <Input
+              type="number"
+              id="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="max people">People</Label>
+            <Input
+              type="number"
+              id="max_people"
+              value={max_people}
+              onChange={(e) => setMaxPeople(e.target.value)}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="room number"> roomNumber</Label>
+            <Input
+              type="number"
+              id="room_number"
+              value={room_number}
+              onChange={(e) => setRoomNumber(e.target.value)}
+            />
+          </FormField> <FormField>
+            <Label htmlFor="description">Description</Label>
+            <Input
+              type="text"
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </FormField>
+           <FormField>
+            <Label htmlFor="hotel id">Hotel Id</Label>
+            <Input
+              type="number"
+              id="hotel_id"
+              value={hotel_id}
+              onChange={(e) => setHotelId(e.target.value)}
+            />
+          </FormField>
+          
+          <FormField>
+            <Button color="primary" type="submit">
+              {isLoading ? "Loading..." : "Submit "}
+            </Button>
+          </FormField>
+          <FormField>
+            {errors?.map((err) => (
+              <Error key={err}>{err}</Error>
+            ))}
+          </FormField>
+        </form>
     </div>
-  </div>)
-   
+  )
 }
 
 export default Room
-
-// import React,{useEffect,use} from 'react'
-// // import React from 'react'
-// function Room() {
-//     const [rooms, setrooms] = useState("");
-    
-
-//     useEffect(() => {
-//         fetch('/rooms')
-//             .then(res => res.json())
-//             .then(data => setRooms(data))
-
-//     }, []);
-//   return (
-//     <div>
-
-       
-//     </div>
-//   )
-// }
-
-// export default Room

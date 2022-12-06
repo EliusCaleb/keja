@@ -39,6 +39,6 @@ class RoomsController < ApplicationController
         params.permit(:title, :price, :max_people, :room_number, :description, :hotel_id)
     end 
     def render_not_found_response
-        render json: { error: "Room not found" }, status: :not_found
+        render json: { errors: ["Room not found"] }, status: :not_found
     end
 end

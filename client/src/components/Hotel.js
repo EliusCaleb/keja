@@ -106,7 +106,7 @@ function Hotel({ hotels }) {
             <span className="hotelPriceHighlight">
               Book a stay over $114 at this property and get a free airport taxi
             </span> */}
-          {/* <div className="hotelImages">
+           <div className="hotelImages">
             {photos.map((photo, i) => (
               <div className="hotelImgWrapper" key={i}>
                 <img
@@ -117,7 +117,7 @@ function Hotel({ hotels }) {
                 />
               </div>
             ))}
-          </div> */}
+          </div> 
           <div className="hotelDetails">
             {/* <div className="hotelDetailsTexts">
                 <h1 className="hotelTitle">Stay in the heart of City</h1>
@@ -151,7 +151,7 @@ function Hotel({ hotels }) {
                         <div className="card-body text-50">
                           <h2 className="card-text fw-bold fs-5 text-capitalize ">{hotel.name}</h2>
                           <p className="card-text  fs-5">{hotel.description}</p>
-                          <p className="card-text fw-bold fs-5 "> ${hotel.price}</p>
+                          <p className="card-text fw-bold fs-5 "> ${hotel.cheapest_price}</p>
                         </div>
 
                       </div>
@@ -167,6 +167,7 @@ function Hotel({ hotels }) {
             </div>
           </div>
         </div>
+        <hr/>
         <Footer />
       </div>
     </div>
