@@ -1,21 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Navbar from '../pages/Navbar'
 import Header from '../pages/Header'
 import Featured from '../pages/Featured'
 import Footer from '../pages/Footer'
 import "../styles/home.css"
 
-function Home() {
-  const [hotels, setHotels] = useState([]);
-    
-
-    useEffect(() => {
-        fetch('/hotels')
-            .then(res => res.json())
-            .then(data => setHotels(data))
-
-    }, []);
-
+function Home({hotels}) {
+ 
     return (
         <div>
           <Navbar />

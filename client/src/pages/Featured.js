@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 
 function Featured({hotels}) {
-  console.log(hotels)
 
     return (
       <>
@@ -22,6 +21,8 @@ function Featured({hotels}) {
                                   <div className="card-body"key={hotel.id}>
                                       <h5 className="card-title">{hotel.name}</h5>
                                       <p className="card-text">{hotel.city}</p>
+                                      <p className="card-text">Rate {hotel.ratings}</p>
+
                                       <NavLink className='btn btn-success'to={`/hotels/${hotel.id}`}>View</NavLink>
                                   </div>
                               </div>

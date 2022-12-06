@@ -1,4 +1,6 @@
 import "../styles/navbar.css"
+import {  NavLink } from 'react-router-dom'
+
 
 function Navbar() {
   return (
@@ -6,7 +8,7 @@ function Navbar() {
     <div className="navContainer">
       <span className="logo">Keja App</span>
       <div className="navItems">
-        <button className="navButton">Register</button>
+      <NavLink className='btn btn-success'to={`/rooms`}>Rooms</NavLink>
         <button className="navButton">Login</button>
       </div>
     </div>
