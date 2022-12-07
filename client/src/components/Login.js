@@ -32,11 +32,13 @@ function Login({onLogin}) {
 
   return (
     <div>
+     
         {
           showLogIn ? (
-
+             
             <form onSubmit={handleSubmit}>
             <FormField>
+              <h1> Welcome</h1>
               <Label htmlFor="username">Username</Label>
               <Input
                 type="text"

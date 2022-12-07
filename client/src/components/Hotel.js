@@ -10,7 +10,6 @@ import {
   faCircleArrowLeft,
   faCircleArrowRight,
   faCircleXmark,
-  faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Hotel({ hotels }) {
@@ -92,9 +91,7 @@ function Hotel({ hotels }) {
         )}
         <button className="btn btn-info mb-4" onClick={handleClick}>Go Back</button>
       
-        <div className="hotelWrapper">
-
-          
+        <div className="hotelWrapper">     
            <div className="hotelImages">
             {photos.map((photo, i) => (
               <div className="hotelImgWrapper" key={i}>
@@ -107,16 +104,13 @@ function Hotel({ hotels }) {
               </div>
             ))}
           </div> 
-          <div className="hotelDetails">
-           
+          <div className="hotelDetails">          
             <div className='container  mt-5 .bg-secondary.bg-gradient'>
               <div className='row '>
                 <div className="card" >
-                  <div key={hotels.id}>
-                 
+                  <div key={hotels.id}>                
                     {hotels.map(hotel => (
                        hotel.id === parseInt(params.id) &&
-
                       <div className='item '>
                         <h2 className="card-text fw-bold fs-5 text-uppercase ">{hotel.hotel_type}</h2>
                         <p className='lead fw-bolder text-center '>  {hotel.address}
@@ -125,7 +119,7 @@ function Hotel({ hotels }) {
                           <h2 className="card-text fw-bold fs-5 text-capitalize ">{hotel.name}</h2>
                           <p className="card-text  fs-5">{hotel.description}</p>
                           <p className="card-text fw-bold fs-5 "> ${hotel.cheapest_price}</p>
-                          <NavLink className='btn btn-success mb-3' to={`/rooms/${hotel.id}`}>View Rooms !</NavLink>
+                          <NavLink className='btn btn-success mb-3' to={`/rooms/${hotel.id}`}>View Rooms</NavLink>
                         </div>
 
                       </div>
@@ -134,7 +128,10 @@ function Hotel({ hotels }) {
 
                   </div>
 
+
+
                 </div>
+                
 
               </div>
 

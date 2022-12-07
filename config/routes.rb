@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :rooms
   resources :users, only:[:show, :create]
   resources :hotels

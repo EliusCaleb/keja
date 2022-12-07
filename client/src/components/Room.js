@@ -1,5 +1,7 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Navbar from '../pages/Navbar';
+import Header from '../pages/Header';
+import Footer from '../pages/Footer';
 import { useNavigate,useParams } from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
@@ -12,12 +14,22 @@ function Room({hotels}) {
   const [price, setPrice] = useState(4)
   const [ max_people,setMaxPeople ] = useState(4)
   const [room_number, setRoomNumber] = useState(4)
-  const [ description, setDescription] = useState("")
-  
-  const params = useParams();
-console.log('room',params);   
+  const [ description, setDescription] = useState("");
+  const  [rooms, setRooms] = useState([]);
 
 
+  const {id} = useParams();
+     
+
+  useEffect(() => {
+    // auto-login
+    fetch(`/rooms/${id}`).then((r) => {
+      if (r.ok) {
+        r.json().then((rooms) => setRooms(rooms));
+      }
+    });
+  }, []);
+  console.log('wewe',rooms)
   function handleClick(e) {
     navigate('/')
   }
@@ -49,8 +61,15 @@ console.log('room',params);
     });
   }
   return (
+    
+
+
     <div>
-      <form onSubmit={handleSubmit}>
+      < Navbar />
+      < Header />
+
+      <div className="roomContainer">
+      <form   className= "room form" onSubmit={handleSubmit}>
           <FormField>
             <Label htmlFor="title">Title</Label>
             <Input
@@ -109,6 +128,8 @@ console.log('room',params);
             ))}
           </FormField>
         </form>
+      </div>
+      
     </div>
   )
 }

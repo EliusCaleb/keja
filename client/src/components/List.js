@@ -13,7 +13,7 @@ function List() {
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
-  const [options, setOptions] = useState(location.state.options);
+   const [options, setOptions] = useState(location.state.options);
 
   
   return (

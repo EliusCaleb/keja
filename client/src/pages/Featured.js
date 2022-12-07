@@ -8,7 +8,6 @@ function Featured({hotels}) {
     return (
       <>
       <h2 className='text-center text-success my-5'>Hotels</h2>
-       <hr/>
       <div className='container my-5 py-5'key={hotels.id}>
           <div className='row d-flex justify-content-center' key={hotels.id}>
                     

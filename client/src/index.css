@@ -29,3 +29,7 @@ form input {
 form button[type="submit"] {
   width: 40%;
 }
+room form{
+  margin-top: 60px;
+  align-items: center;
+}

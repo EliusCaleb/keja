@@ -8,7 +8,7 @@ function Navbar() {
     <div className="navContainer">
       <span className="logo">Keja App</span>
       <div className="navItems">
-      <NavLink className='btn btn-success'to={`/rooms`}>Rooms</NavLink>
+      <NavLink className='btn btn-success'to={`/`}>Home</NavLink>
         <button className="navButton">Login</button>
       </div>
     </div>
