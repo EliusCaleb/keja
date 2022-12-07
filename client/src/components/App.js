@@ -38,7 +38,7 @@ function App() {
         <Route path="/" element={<Home hotels= {hotels} />} />
          {/* <Route path="/hotels" element={<List />} /> */}
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
-        <Route path="/rooms/:hotelId" element={<Room hotels={hotels}/>} /> 
+        <Route path="/rooms" element={<Room  />} /> 
       </Routes>
     </div>
   

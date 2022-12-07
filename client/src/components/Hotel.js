@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "../styles/hotel.css";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
 import Footer from '../pages/Footer';
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate, useParams, NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useParams} from 'react-router-dom'
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -15,9 +14,9 @@ import {
 function Hotel({ hotels }) {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
-
-  console.log(hotels)
+ 
    const params = useParams();
+   console.log('hotel',params)
   const navigate = useNavigate();
 
   function handleClick(e) {
@@ -48,6 +47,20 @@ function Hotel({ hotels }) {
     setSlideNumber(i);
     setOpen(true);
   };
+
+  const  [hotel, setHotel] = useState(null);
+  
+     
+  
+
+  useEffect(() => {
+    fetch(`/hotels/${params.id}`)
+      .then((r) => r.json())
+      .then((hotel) => setHotel(hotel));
+  }, [params]);
+
+  console.log('rooms number',hotel)
+
 
   const handleMove = (direction) => {
     let newSlideNumber;
@@ -119,7 +132,15 @@ function Hotel({ hotels }) {
                           <h2 className="card-text fw-bold fs-5 text-capitalize ">{hotel.name}</h2>
                           <p className="card-text  fs-5">{hotel.description}</p>
                           <p className="card-text fw-bold fs-5 "> ${hotel.cheapest_price}</p>
-                          <NavLink className='btn btn-success mb-3' to={`/rooms/${hotel.id}`}>View Rooms</NavLink>
+                          <NavLink className='btn btn-success mb-3' to={`/rooms`}>View Rooms</NavLink>
+                          <h4>Rooms</h4>
+                              {hotel.rooms.map((room) => (
+                             <div>
+                              <h5>{room.title}</h5>
+                                 <p>Score: {room.price}</p>
+                               <p>Comment: {room.room_number}</p>
+                             </div>
+      ))}
                         </div>
 
                       </div>

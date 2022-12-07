@@ -7,8 +7,8 @@ class HotelsController < ApplicationController
     end  
       # GET /hotels/:id
    def show
-    hotel = find_hotel
-    render json: hotel
+    hotel = Hotel.find(params[:id])
+    render json: hotel,status: :ok, serializer: HotelSerializer
    end
     
     # POST /hotels
@@ -19,22 +19,20 @@ class HotelsController < ApplicationController
 
    # PATCH /hotels/:id
   def update
-    hotel = find_hotel
+    hotel = Hotel.find(params[:id])
     hotel.update!(hotel_params)
     render json: hotel
   end
    # DELETE /hotels/:id
   def destroy
-    hotel = find_hotel
+    hotel = Hotel.find(params[:id])
     hotel.destroy
     head :no_content
   end
 
 
     private
-    def find_hotel
-        Hotel.find(params[:id])
-    end
+    
     def hotel_params
         params.permit(:name, :hotel_type, :city, :address, :distance, :photos, :description, :ratings, :cheapest_price, :features)
     end 
