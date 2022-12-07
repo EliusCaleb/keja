@@ -14,6 +14,9 @@ function Room() {
   const [ description, setDescription] = useState("")
   const [ hotel_id, setHotelId]= useState(3)
 
+  function handleClick(e) {
+    navigate('/')
+  }
 
 
   function handleSubmit(e) {
@@ -36,7 +39,7 @@ function Room() {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        navigate("/rooms");  
+        navigate("/");  
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -103,6 +106,8 @@ function Room() {
             <Button color="primary" type="submit">
               {isLoading ? "Loading..." : "Submit "}
             </Button>
+
+            <button className="btn btn-info mb-4" onClick={handleClick}>Go Back</button>
           </FormField>
           <FormField>
             {errors?.map((err) => (

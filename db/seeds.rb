@@ -17,7 +17,6 @@ h8 = Hotel.create!(name:"Overstone", hotel_type:"2  star" ,city:"Kampala", addre
     Cloth Hall, Main Market Square and Town Hall Tower",ratings:8,cheapest_price:200)
 h9 = Hotel.create!(name:"Imara", hotel_type:"2  star" ,city:"Dodoma", address:" Pombe Avenue", distance:"800",photo:"https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",description: "Located a 5-minute walk from St. Florian's Gate in Krakow, Tower Street Apartments has accommodations with air conditioning and free WiFi. The units come with hardwood floors and feature a fully equipped kitchenette with a microwave, a flat-screen TV, and a private bathroom with shower and a hairdryer. A fridge is also offered, as well as an electric tea pot and a coffee machine. Popular points of interest near the apartment include Cloth Hall, Main Market Square and Town Hall Tower. The nearest airport is John Paul II International Kraków–Balice, 16.1 km from Tower Street Apartments, and the property offers a paid airport shuttle service.",ratings:8,cheapest_price:200)
 
-Room.create!()
 
 
 

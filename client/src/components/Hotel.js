@@ -95,17 +95,7 @@ function Hotel({ hotels }) {
         <NavLink className='btn btn-success mb-3' to={`/rooms`}>Book Now !</NavLink>
         <div className="hotelWrapper">
 
-          {/* <h1 className="hotelTitle">Tower Street Apartments</h1>
-            <div className="hotelAddress">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span>Elton St 125 New york</span>
-            </div>
-            <span className="hotelDistance">
-              Excellent location – 500m from center
-            </span>
-            <span className="hotelPriceHighlight">
-              Book a stay over $114 at this property and get a free airport taxi
-            </span> */}
+          
            <div className="hotelImages">
             {photos.map((photo, i) => (
               <div className="hotelImgWrapper" key={i}>
@@ -119,23 +109,7 @@ function Hotel({ hotels }) {
             ))}
           </div> 
           <div className="hotelDetails">
-            {/* <div className="hotelDetailsTexts">
-                <h1 className="hotelTitle">Stay in the heart of City</h1>
-                <p className="hotelDesc">
-                  Located a 5-minute walk from St. Florian's Gate in Krakow, Tower
-                  Street Apartments has accommodations with air conditioning and
-                  free WiFi. The units come with hardwood floors and feature a
-                  fully equipped kitchenette with a microwave, a flat-screen TV,
-                  and a private bathroom with shower and a hairdryer. A fridge is
-                  also offered, as well as an electric tea pot and a coffee
-                  machine. Popular points of interest near the apartment include
-                  Cloth Hall, Main Market Square and Town Hall Tower. The nearest
-                  airport is John Paul II International Kraków–Balice, 16.1 km
-                  from Tower Street Apartments, and the property offers a paid
-                  airport shuttle service.
-                </p>
-              </div> */}
-
+           
             <div className='container  mt-5 .bg-secondary.bg-gradient'>
               <div className='row '>
                 <div className="card" >
