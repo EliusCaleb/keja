@@ -19,7 +19,6 @@ function Hotel({ hotels }) {
 
   console.log(hotels)
    const params = useParams();
-   console.log(params)
   const navigate = useNavigate();
 
   function handleClick(e) {
@@ -92,7 +91,7 @@ function Hotel({ hotels }) {
           </div>
         )}
         <button className="btn btn-info mb-4" onClick={handleClick}>Go Back</button>
-        <NavLink className='btn btn-success mb-3' to={`/rooms`}>Book Now !</NavLink>
+      
         <div className="hotelWrapper">
 
           
@@ -126,6 +125,7 @@ function Hotel({ hotels }) {
                           <h2 className="card-text fw-bold fs-5 text-capitalize ">{hotel.name}</h2>
                           <p className="card-text  fs-5">{hotel.description}</p>
                           <p className="card-text fw-bold fs-5 "> ${hotel.cheapest_price}</p>
+                          <NavLink className='btn btn-success mb-3' to={`/rooms/${hotel.id}`}>View Rooms !</NavLink>
                         </div>
 
                       </div>

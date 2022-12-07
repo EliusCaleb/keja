@@ -1,9 +1,10 @@
 
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
-function Room() {
+function Room({hotels}) {
+  
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -12,7 +13,10 @@ function Room() {
   const [ max_people,setMaxPeople ] = useState(4)
   const [room_number, setRoomNumber] = useState(4)
   const [ description, setDescription] = useState("")
-  const [ hotel_id, setHotelId]= useState(3)
+  
+  const params = useParams();
+console.log('room',params);   
+
 
   function handleClick(e) {
     navigate('/')
@@ -33,8 +37,7 @@ function Room() {
         max_people,
         room_number,
         description,
-        hotel_id,
-
+     
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -92,22 +95,13 @@ function Room() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </FormField>
-           <FormField>
-            <Label htmlFor="hotel id">Hotel Id</Label>
-            <Input
-              type="number"
-              id="hotel_id"
-              value={hotel_id}
-              onChange={(e) => setHotelId(e.target.value)}
-            />
-          </FormField>
           
           <FormField>
             <Button color="primary" type="submit">
               {isLoading ? "Loading..." : "Submit "}
             </Button>
 
-            <button className="btn btn-info mb-4" onClick={handleClick}>Go Back</button>
+            <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
           </FormField>
           <FormField>
             {errors?.map((err) => (
