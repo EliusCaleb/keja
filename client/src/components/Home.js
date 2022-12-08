@@ -13,7 +13,6 @@ function Home({hotels}) {
           <Header/>
           <div className="homeContainer">
             <Featured  hotels={hotels}/>
-            <h1 className="homeTitle">Browse by property type</h1>
             <hr  className='line'/>
             <Footer/>
           </div>

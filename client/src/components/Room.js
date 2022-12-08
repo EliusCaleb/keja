@@ -5,7 +5,7 @@ import Header from '../pages/Header';
 import { useNavigate} from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
-function Room({hotels}) {
+function Room() {
   
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,13 +16,7 @@ function Room({hotels}) {
   const [room_number, setRoomNumber] = useState(4)
   const [ description, setDescription] = useState("");
   const [ hotel_id,setHotelId ] = useState(0)
-     
- 
-
-
-  
-  
-  
+      
   function handleClick(e) {
     navigate('/')
   }
@@ -124,13 +118,14 @@ function Room({hotels}) {
               {isLoading ? "Loading..." : "Submit "}
             </Button>
 
-            <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
+          
           </FormField>
           <FormField>
             {errors?.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
           </FormField>
+          <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
         </form>
       </div>
       

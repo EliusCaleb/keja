@@ -59,6 +59,15 @@ function Hotel({ hotels }) {
       .then((hotel) => setHotel(hotel));
   }, [params]);
 
+
+  // function handleDeleteClick() {
+  //   fetch(`/reviews/${review.id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then((deletedReview) => onDeleteReview(deletedReview));
+  // }
+
   console.log('rooms number', hotel)
 
 
@@ -156,9 +165,12 @@ function Hotel({ hotels }) {
                               <div>
                                 <h1>{review.title}</h1>
                                 <h5>comment: {review.comment}</h5>
+                                {/* <button className="btn btn-info mb-4 mr-3 " onClick={handleDeleteClick}>Delete Review</button> */}
                               </div>
                             ))}
                               <Link className='btn btn-success mb-3' to={`/reviews`}>Add Reviews</Link>
+
+                              
                             </div>
                           </div>
 

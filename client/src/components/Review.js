@@ -56,19 +56,19 @@ function Review() {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="price">Price</Label>
+            <Label htmlFor="comment">Comment</Label>
             <Input
-              type="number"
+              type="text"
               id="price"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
           </FormField>
           <FormField>
-            <Label htmlFor="max people">People</Label>
+            <Label htmlFor="hotel_id">Hotel</Label>
             <Input
               type="number"
-              id="max_people"
+              id="hotel_id"
               value={hotel_id}
               onChange={(e) => setHotelId(e.target.value)}
             />
@@ -79,13 +79,14 @@ function Review() {
               {isLoading ? "Loading..." : "Submit "}
             </Button>
 
-            <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
+         
           </FormField>
           <FormField>
             {errors?.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
           </FormField>
+          <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
         </form>
       </div>
       

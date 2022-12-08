@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end  
       # GET /reviews/:id
    def show
-     review = find_hotel
+     review = find_review
     render json: review
    end
     
