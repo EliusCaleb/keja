@@ -29,9 +29,6 @@ function App() {
 
   
 
-
-
-
   if (!user) return <Login onLogin={setUser} />;
   return (
     <div> 
@@ -40,7 +37,7 @@ function App() {
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
         <Route path="/rooms" element={<Room  />} /> 
         <Route path="/reviews" element={<Review  />} /> 
-        <Route path="/book" element={<Book  />} /> 
+        <Route path="/books" element={<Book  />} /> 
 
       </Routes>
     </div>

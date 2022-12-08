@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
 
-import { useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
 function  Book () {
@@ -11,24 +11,34 @@ function  Book () {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const [start_date, setStartDate] = useState("");
+  const [start_date, setStartDate] = useState("2022-12-10");
   const [end_date, setEndDate] = useState("")
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_id, setRoomId] = useState(0)
   const [ user_id, setUserId] = useState(0);
   const [ hotel_id, setHotelId ] = useState(0)
-      
+  const [book, setBook] = useState(null);  
   function handleClick(e) {
     navigate('/')
   }
+   const location = useLocation();
+  
 
-  // const [book, setBook] = useState(null);
+  useEffect(() => {
+    // let user = JSON.parse(localStorage.getItem("user"))
+    // setUser('books',user)
+   
+    if (location.state !== null){
+       setHotelId(location.state.hotel)
+       setRoomId(location.state.room)
+       setRoomNumber(location.state.roomnumb)
+    }
+    fetch('/books/:id')
+      .then((r) => r.json())
+     .then((book) => setBook(book));
+  }, [location]);
+  console.log(book)
 
-  // useEffect(() => {
-  //   fetch(`/books/${bookId}`)
-  //     .then((r) => r.json())
-  //     .then((book) => setBook(book));
-  // }, [bookId]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,12 +49,11 @@ function  Book () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-  
-        start_date:
+        start_date,
         end_date,
         room_number,
         room_id,
-        user_id,
+         user_id,
          hotel_id,
      
       }),
@@ -81,7 +90,7 @@ function  Book () {
             <Label htmlFor="price">End Date</Label>
             <Input
               type="text"
-              id="price"
+              id="end_date"
               value={end_date}
               onChange={(e) => setEndDate(e.target.value)}
             />

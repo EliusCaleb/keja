@@ -22,7 +22,8 @@ function Login({onLogin}) {
     }).then((r)=>{
       setIsLoading(false);
       if(r.ok){
-        r.json().then((user) => onLogin(user));            
+        r.json().then((user) => onLogin(user));    
+        // localStorage.setItem("user",JSON.stringify(r))        
       } else if(r.status ===401){
         setErrors(['invalid username or password'])
       }
