@@ -17,7 +17,12 @@ h8 = Hotel.create!(name:"Overstone", hotel_type:"2  star" ,city:"Kampala", addre
     Cloth Hall, Main Market Square and Town Hall Tower",ratings:8,cheapest_price:200)
 h9 = Hotel.create!(name:"Imara", hotel_type:"2  star" ,city:"Dodoma", address:" Pombe Avenue", distance:"800",photo:"https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",description: "Located a 5-minute walk from St. Florian's Gate in Krakow, Tower Street Apartments has accommodations with air conditioning and free WiFi. The units come with hardwood floors and feature a fully equipped kitchenette with a microwave, a flat-screen TV, and a private bathroom with shower and a hairdryer. A fridge is also offered, as well as an electric tea pot and a coffee machine. Popular points of interest near the apartment include Cloth Hall, Main Market Square and Town Hall Tower. The nearest airport is John Paul II International Kraków–Balice, 16.1 km from Tower Street Apartments, and the property offers a paid airport shuttle service.",ratings:8,cheapest_price:200)
 
+user1 = User.create!(username:"Elon", email:"elon@gmail.com", password:"qwerty", password_confirmation:"qwerty") 
+user2 = User.create!(username:"Leo", email:"leo@gmail.com", password:"zxcvbnm", password_confirmation:"zxcvbnm")
 
+
+
+ 
 Room.create!(title:"Deluxe", price:200, max_people:5, room_number:1, description:"amazing place for family", hotel_id:9)
 Room.create!(title:"Studio", price:200, max_people:5, room_number:2, description:"amazing place for family", hotel_id:8)
 Room.create!(title:"suites", price:200, max_people:5, room_number:3, description:"amazing place for family", hotel_id:7)
@@ -36,14 +41,14 @@ Review.create!( title:"ample parking", comment:"Really  awesome project", hotel_
 Review.create!( title:"Great for pinic", comment:"Really  awesome project", hotel_id:4 )
 Review.create!( title:"Great for nature work", comment:"Really  awesome project",hotel_id:5 )
 
-
+Book.create!( start_date: "2022-12-05", end_date: "2022-12-27", room_number:2, room_id:1, user_id:1, hotel_id:1)
+Book.create!( start_date: "2022-12-07", end_date: "2022-12-30", room_number:3, room_id:2, user_id:2, hotel_id:2)
+Book.create!( start_date: "2022-12-01", end_date: "2022-12-25", room_number:5, room_id:4, user_id:1, hotel_id:3)
+Book.create!( start_date: "2022-12-01", end_date: "2022-12-27", room_number:8, room_id:3, user_id:2, hotel_id:4)
+Book.create!( start_date: "2022-12-04", end_date: "2023-01-07", room_number:10, room_id:5, user_id:1, hotel_id:6)
 
 
         
-            
-
-
-    
-
+        
 
 puts "done"

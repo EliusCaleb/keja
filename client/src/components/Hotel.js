@@ -153,7 +153,7 @@ function Hotel({ hotels }) {
                                 <h5>  Room Description: {room.description}</h5>
                               </div>
                             ))}
-                               <NavLink className='btn btn-success mb-3' to={`/rooms`}>Books Now</NavLink>
+                               <NavLink className='btn btn-success mb-3' to={'/book'}>Books Now</NavLink>
                           </div>
                           </div>
                         
