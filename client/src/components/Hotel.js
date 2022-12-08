@@ -59,15 +59,6 @@ function Hotel({ hotels }) {
       .then((hotel) => setHotel(hotel));
   }, [params]);
 
-
-  // function handleDeleteClick() {
-  //   fetch(`/reviews/${review.id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((r) => r.json())
-  //     .then((deletedReview) => onDeleteReview(deletedReview));
-  // }
-
   console.log('rooms number', hotel)
 
 
@@ -141,7 +132,6 @@ function Hotel({ hotels }) {
                           <h2 className="card-text fw-bold fs-5 text-capitalize ">{hotel.name}</h2>
                           <p className="card-text  fs-5">{hotel.description}</p>
                           <p className="card-text fw-bold fs-5 "> ${hotel.cheapest_price}</p>
-                          <NavLink className='btn btn-success mb-3' to={`/rooms`}>View Rooms</NavLink>
                           <div className='card mb-3'>
                           <div className='card-body'>
                             <h4>Rooms</h4>
@@ -169,7 +159,6 @@ function Hotel({ hotels }) {
                               </div>
                             ))}
                               <Link className='btn btn-success mb-3' to={`/reviews`}>Add Reviews</Link>
-
                               
                             </div>
                           </div>
@@ -177,13 +166,7 @@ function Hotel({ hotels }) {
                           
                         </div>
 
-
-
-
                       </div>
-
-
-
 
                     ))}
                   </div>

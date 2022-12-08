@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Book from './Book';
 import Hotel from "./Hotel";
-// import List from "./List";
 import Login from "./Login";
 import Review from "./Review";
 import Room from "./Room"
@@ -38,7 +37,6 @@ function App() {
     <div> 
       <Routes>
         <Route path="/" element={<Home hotels= {hotels} />} />
-         {/* <Route path="/hotels" element={<List />} /> */}
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
         <Route path="/rooms" element={<Room  />} /> 
         <Route path="/reviews" element={<Review  />} /> 

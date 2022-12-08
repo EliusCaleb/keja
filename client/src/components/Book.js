@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
 
@@ -6,7 +6,8 @@ import { useNavigate} from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
 function  Book () {
-  
+  // const [ bookId] = useParams()
+  // console.log('ninja',bookId)
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -15,12 +16,19 @@ function  Book () {
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_id, setRoomId] = useState(0)
   const [ user_id, setUserId] = useState(0);
-  const [ hotel_id,setHotelId ] = useState(0)
+  const [ hotel_id, setHotelId ] = useState(0)
       
   function handleClick(e) {
     navigate('/')
   }
 
+  // const [book, setBook] = useState(null);
+
+  // useEffect(() => {
+  //   fetch(`/books/${bookId}`)
+  //     .then((r) => r.json())
+  //     .then((book) => setBook(book));
+  // }, [bookId]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -37,7 +45,7 @@ function  Book () {
         room_number,
         room_id,
         user_id,
-        hotel_id,
+         hotel_id,
      
       }),
     }).then((r) => {
@@ -112,13 +120,14 @@ function  Book () {
               type="number"
               id="hotel_id"
               value={hotel_id}
-              onChange={(e) => setHotelId(e.target.value)}
+               onChange={(e) => setHotelId(e.target.value)}
             />
           </FormField>
           
           <FormField>
             <Button color="primary" type="submit">
-              {isLoading ? "Loading..." : "Submit "}
+               
+              {isLoading ? "Loading..." : "Reserve "}
             </Button>
 
           
