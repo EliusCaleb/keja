@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useLocation} from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
 
 
@@ -11,10 +11,26 @@ function Review() {
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("")
   const [ hotel_id,setHotelId ] = useState(0)
-  const navigate = useNavigate();  
+  const [ review, setReview] = useState(null)
+  const navigate = useNavigate(); 
+  const location = useLocation();
   function handleClick(e) {
     navigate('/')
   }
+
+  useEffect(() => {
+    // let user = JSON.parse(localStorage.getItem("user"))
+    // setUser('books',user)
+   
+    if (location.state !== null){
+       setHotelId(location.state.hotel)
+    }
+    fetch('/reviews/:id')
+      .then((r) => r.json())
+     .then((review) => setReview(review));
+  }, [location]);
+  console.log(review)
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);

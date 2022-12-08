@@ -167,11 +167,16 @@ function Hotel({ hotels }) {
                               <div>
                                 <h1>{review.title}</h1>
                                 <h5>comment: {review.comment}</h5>
+                                 
                                 {/* <button className="btn btn-info mb-4 mr-3 " onClick={handleDeleteClick}>Delete Review</button> */}
                               </div>
                             ))}
-                              <Link className='btn btn-success mb-3' to={`/reviews`}>Add Reviews</Link>
-                              
+                            
+                              <a className='btn btn-success mb-3' href='#/' onClick={()=>navigate("/reviews",{
+                                 state:{ 
+                                     hotel: hotel.id   
+                                 }
+                               } )}>Add Reviews</a>
                             </div>
                           </div>
 
