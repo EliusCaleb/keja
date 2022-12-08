@@ -4,6 +4,7 @@ import Home from "./Home";
 import Hotel from "./Hotel";
 // import List from "./List";
 import Login from "./Login";
+import Review from "./Review";
 import Room from "./Room"
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
          {/* <Route path="/hotels" element={<List />} /> */}
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
         <Route path="/rooms" element={<Room  />} /> 
+        <Route path="/reviews" element={<Review  />} /> 
+
       </Routes>
     </div>
   

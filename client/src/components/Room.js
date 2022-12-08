@@ -15,7 +15,7 @@ function Room({hotels}) {
   const [ max_people,setMaxPeople ] = useState(4)
   const [room_number, setRoomNumber] = useState(4)
   const [ description, setDescription] = useState("");
- 
+  const [ hotel_id,setHotelId ] = useState(0)
      
  
 
@@ -42,6 +42,7 @@ function Room({hotels}) {
         max_people,
         room_number,
         description,
+        hotel_id,
      
       }),
     }).then((r) => {
@@ -106,6 +107,15 @@ function Room({hotels}) {
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="hotel_id">Hotel</Label>
+            <Input
+              type="number"
+              id="hotel_id"
+              value={hotel_id}
+              onChange={(e) => setHotelId(e.target.value)}
             />
           </FormField>
           
