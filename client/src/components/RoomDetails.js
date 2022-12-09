@@ -29,11 +29,10 @@ function RoomDetails() {
                             <h5 classname="card-subtitle mb-2 text-muted">{booking.hotel_id}</h5>
                             <h5 className="card-subtitle mb-2 text-muted"> {booking.room_id}</h5>
                             <h5 className="card-subtitle mb-2 text-muted">{booking.room_number}</h5>
-                            <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go back</button>
                         </div>
                     ))}
 
-
+                    <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go back</button>
                 </div>
             </div>
 

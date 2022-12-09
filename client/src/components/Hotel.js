@@ -12,13 +12,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Hotel({ hotels }) {
-  const [slideNumber, setSlideNumber] = useState(0);
-  const [open, setOpen] = useState(false);
-
   const params = useParams();
   console.log('hotel', params)
   const navigate = useNavigate();
 
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [hotel, setHotel] = useState(null);
+
+ 
   function handleClick(e) {
     navigate('/')
   }
@@ -48,10 +50,8 @@ function Hotel({ hotels }) {
     setOpen(true);
   };
 
-  const [hotel, setHotel] = useState(null);
-
-
-
+ 
+  
 
   useEffect(() => {
     fetch(`/hotels/${params.id}`)
@@ -139,7 +139,7 @@ function Hotel({ hotels }) {
                               <div>
                                 <h1>{room.title}</h1>
                                 <h5>Price: {room.price}</h5>
-                                <h5>  Door Number: {room.room_number}</h5>
+                                <h5>  Room Number: {room.room_number}</h5>
                                 <h5>  Room Description: {room.description}</h5>
 
                                 <a className='btn btn-success mb-3' href='#/' onClick={()=>navigate("/books",{
@@ -175,6 +175,7 @@ function Hotel({ hotels }) {
                                      hotel: hotel.id   
                                  }
                                } )}>Add Reviews</a>
+
                             </div>
                           </div>
 

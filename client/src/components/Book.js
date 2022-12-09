@@ -8,21 +8,23 @@ import BookContext from "../BookContext";
 
 function  Book () {
   const {addBook} = useContext(BookContext)
-  
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
+  
   const [start_date, setStartDate] = useState("2022-12-10");
   const [end_date, setEndDate] = useState("")
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_id, setRoomId] = useState(0)
   const [ user_id, setUserId] = useState(0);
   const [ hotel_id, setHotelId ] = useState(0)
-  // const [booking, setBookings] = useState(null)
+  
+
   function handleClick(e) {
     navigate('/')
   }
-   const location = useLocation();
+  
    
   
   useEffect(() => {
@@ -66,9 +68,6 @@ function  Book () {
   }
   
   return (
-    
-
-
     <div>
       < Navbar />
       < Header />

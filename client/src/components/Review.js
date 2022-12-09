@@ -6,29 +6,29 @@ import { Button, Error, FormField, Input, Label } from "../styles";
 
 
 function Review() {
+  const navigate = useNavigate(); 
+  const location = useLocation();
+
   const [errors, setErrors] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("")
   const [ hotel_id,setHotelId ] = useState(0)
   const [ review, setReview] = useState(null)
-  const navigate = useNavigate(); 
-  const location = useLocation();
+  
   function handleClick(e) {
     navigate('/')
   }
 
   useEffect(() => {
-    // let user = JSON.parse(localStorage.getItem("user"))
-    // setUser('books',user)
-   
+    
     if (location.state !== null){
        setHotelId(location.state.hotel)
     }
-    fetch('/reviews/:id')
+    fetch(`/reviews/:id`)
       .then((r) => r.json())
      .then((review) => setReview(review));
-  }, [location]);
+  }, [location ]);
   console.log(review)
 
   function handleSubmit(e) {
@@ -55,6 +55,9 @@ function Review() {
       }
     });
   }
+
+  
+  
   return (
    <>
       <div>
@@ -96,9 +99,10 @@ function Review() {
             <Button color="primary" type="submit">
               {/* {isLoading ? "Loading..." : "Submit "} */}
             </Button>
-
+  
          
           </FormField>
+     
           <FormField>
             {errors?.map((err) => (
               <Error key={err}>{err}</Error>
