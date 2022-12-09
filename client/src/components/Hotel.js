@@ -3,7 +3,7 @@ import "../styles/hotel.css";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
 import Footer from '../pages/Footer';
-import { useNavigate, useParams,Link } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleArrowLeft,
@@ -158,14 +158,12 @@ function Hotel({ hotels }) {
                                
                           </div>
                           </div>
-                        
-
-                          <div className="card" >
+                      
                             <div className="card-body">
                               <h5 className="card-title">Reviews</h5>
                               {hotel.reviews.map((review) => (
                               <div>
-                                <h1>{review.title}</h1>
+                                <h5>{review.title}</h5>
                                 <h5>comment: {review.comment}</h5>
                                  
                                 {/* <button className="btn btn-info mb-4 mr-3 " onClick={handleDeleteClick}>Delete Review</button> */}
@@ -182,8 +180,7 @@ function Hotel({ hotels }) {
 
                           
                         </div>
-
-                      </div>
+                   
 
                     ))}
                   </div>

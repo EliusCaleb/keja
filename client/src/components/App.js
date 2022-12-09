@@ -5,8 +5,9 @@ import Book from './Book';
 import Hotel from "./Hotel";
 import Login from "./Login";
 import Review from "./Review";
-import Room from "./Room"
-
+import Room from "./Room";
+import RoomDetails from "./RoomDetails";
+import {RoomProvider} from '../BookContext'
 function App() {
   const [user, setUser] = useState(null);
 
@@ -32,14 +33,18 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
   return (
     <div> 
+      <RoomProvider>
       <Routes>
         <Route path="/" element={<Home hotels= {hotels} />} />
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
         <Route path="/rooms" element={<Room  />} /> 
         <Route path="/reviews" element={<Review  />} /> 
         <Route path="/books" element={<Book  />} /> 
+        <Route path="/books/:id" element={<RoomDetails  />} /> 
 
       </Routes>
+      </RoomProvider>
+     
     </div>
   
   );

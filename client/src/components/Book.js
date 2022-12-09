@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
-
-import { useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate , Link} from 'react-router-dom';
 import { Button, Error, FormField, Input, Label } from "../styles";
+import BookContext from "../BookContext";
+
 
 function  Book () {
+  const {addBook} = useContext(BookContext)
   // const [ bookId] = useParams()
   // console.log('ninja',bookId)
   const [errors, setErrors] = useState([]);
@@ -17,12 +19,14 @@ function  Book () {
   const [room_id, setRoomId] = useState(0)
   const [ user_id, setUserId] = useState(0);
   const [ hotel_id, setHotelId ] = useState(0)
-  const [book, setBook] = useState(null);  
+  // const [booking, setBookings] = useState(null)
   function handleClick(e) {
     navigate('/')
   }
    const location = useLocation();
+   
   
+
 
   useEffect(() => {
     // let user = JSON.parse(localStorage.getItem("user"))
@@ -33,16 +37,13 @@ function  Book () {
        setRoomId(location.state.room)
        setRoomNumber(location.state.roomnumb)
     }
-    fetch('/books/:id')
-      .then((r) => r.json())
-     .then((book) => setBook(book));
-  }, [location]);
-  console.log(book)
-
+    
+  }, [ location]);
+  
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
+     setIsLoading(true);
     fetch("/books", {
       method: "POST",
       headers: {
@@ -58,14 +59,18 @@ function  Book () {
      
       }),
     }).then((r) => {
+
+      
       setIsLoading(false);
       if (r.ok) {
-        navigate("/");  
+        r.json().then((booking)=> console.log("data",booking))
+        // navigate("/");  
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
+  //  console.log("bookings", booking)
   return (
     
 
@@ -73,6 +78,7 @@ function  Book () {
     <div>
       < Navbar />
       < Header />
+   
      
 
       <div className="roomContainer">
@@ -134,10 +140,11 @@ function  Book () {
           </FormField>
           
           <FormField>
-            <Button color="primary" type="submit">
+            <Button color="primary" type="submit" onClick={() => addBook({start_date,end_date,room_number,room_id})}>
                
-              {isLoading ? "Loading..." : "Reserve "}
+               {isLoading ? "Loading..." : "Reserve "}  
             </Button>
+            
 
           
           </FormField>
@@ -147,6 +154,8 @@ function  Book () {
             ))}
           </FormField>
           <button className="btn btn-info mb-4 mr-3 " onClick={handleClick}>Go Back</button>
+
+          <Link className='btn btn-success'to={`/books/${hotel_id}`}>View</Link>
         </form>
       </div>
       

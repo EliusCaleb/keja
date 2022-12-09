@@ -7,7 +7,7 @@ import { Button, Error, FormField, Input, Label } from "../styles";
 
 function Review() {
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("")
   const [ hotel_id,setHotelId ] = useState(0)
@@ -33,7 +33,7 @@ function Review() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
+    // setIsLoading(true);
     fetch("/reviews", {
       method: "POST",
       headers: {
@@ -47,7 +47,7 @@ function Review() {
      
       }),
     }).then((r) => {
-      setIsLoading(false);
+      // setIsLoading(false);
       if (r.ok) {
         navigate("/");  
       } else {
@@ -94,7 +94,7 @@ function Review() {
          
           <FormField>
             <Button color="primary" type="submit">
-              {isLoading ? "Loading..." : "Submit "}
+              {/* {isLoading ? "Loading..." : "Submit "} */}
             </Button>
 
          

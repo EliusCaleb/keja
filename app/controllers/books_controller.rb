@@ -30,7 +30,7 @@ class BooksController < ApplicationController
         params.permit(:start_date, :end_date, :room_number, :room_id, :user_id, :hotel_id)
     end 
     def render_not_found_response
-        render json: { error: "Book not found" }, status: :not_found
+        render json: { errors: ["Book not found"] }, status: :not_found
     end 
 
 
