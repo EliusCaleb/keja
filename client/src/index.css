@@ -33,3 +33,8 @@ room form{
   margin-top: 60px;
   align-items: center;
 }
+.roomcard {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}

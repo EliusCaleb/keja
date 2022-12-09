@@ -8,8 +8,7 @@ import BookContext from "../BookContext";
 
 function  Book () {
   const {addBook} = useContext(BookContext)
-  // const [ bookId] = useParams()
-  // console.log('ninja',bookId)
+  
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -26,12 +25,7 @@ function  Book () {
    const location = useLocation();
    
   
-
-
   useEffect(() => {
-    // let user = JSON.parse(localStorage.getItem("user"))
-    // setUser('books',user)
-   
     if (location.state !== null){
        setHotelId(location.state.hotel)
        setRoomId(location.state.room)
@@ -70,7 +64,7 @@ function  Book () {
       }
     });
   }
-  //  console.log("bookings", booking)
+  
   return (
     
 
