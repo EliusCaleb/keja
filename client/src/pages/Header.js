@@ -1,52 +1,18 @@
 import {
     faBed,
-    faCalendarDays,
     faCar,
-    faPerson,
     faPlane,
     faTaxi,
   } from "@fortawesome/free-solid-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   import "../styles/header.css";
-  import { DateRange } from "react-date-range";
-  import { useState } from "react";
+ 
   import "react-date-range/dist/styles.css"; // main css file
   import "react-date-range/dist/theme/default.css"; // theme css file
-  import { format } from "date-fns";
-  import { useNavigate } from "react-router-dom";
+  
   
   function Header ({ type }) {
-    const [destination, setDestination] = useState("");
-    const [openDate, setOpenDate] = useState(false);
-    const [date, setDate] = useState([
-      {
-        startDate: new Date(),
-        endDate: new Date(),
-        key: "selection",
-      },
-    ]);
-    const [openOptions, setOpenOptions] = useState(false);
-    const [options, setOptions] = useState({
-      adult: 1,
-      children: 0,
-      room: 1,
-    });
-  
-    const navigate = useNavigate();
-  
-    const handleOption = (name, operation) => {
-      setOptions((prev) => {
-        return {
-          ...prev,
-          [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-        };
-      });
-    };
-  
-    // const handleSearch = () => {
-    //   navigate("/hotels", { state: { destination, date, options } });
-    // };
-  
+   
     return (
       <div className="header">
         <div
@@ -83,17 +49,8 @@ import {
               </h1>
               <p className="headerDesc">
                 Get rewarded for your travels – unlock instant savings of 10% or
-                more with a free Lamabooking account
-              </p>
-              
-              
-                
-                {/* <div className="headerSearchItem">
-                  <button className="headerBtn" onClick={handleSearch}>
-                    Search
-                  </button> 
-                </div> */}
-              
+                more with a free Keja account
+              </p>      
             </>
           )}
         </div>

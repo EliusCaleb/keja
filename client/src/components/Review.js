@@ -10,7 +10,7 @@ function Review() {
   const location = useLocation();
 
   const [errors, setErrors] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("")
   const [ hotel_id,setHotelId ] = useState(0)
@@ -33,7 +33,7 @@ function Review() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // setIsLoading(true);
+      setIsLoading(true);
     fetch("/reviews", {
       method: "POST",
       headers: {
@@ -47,8 +47,9 @@ function Review() {
      
       }),
     }).then((r) => {
-      // setIsLoading(false);
+      setIsLoading(false);
       if (r.ok) {
+        r.json().then((data) => console.log('reviews',data))
         navigate("/");  
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -97,7 +98,7 @@ function Review() {
          
           <FormField>
             <Button color="primary" type="submit">
-              {/* {isLoading ? "Loading..." : "Submit "} */}
+             { isLoading ? "Loading..." : "Submit "} 
             </Button>
   
          
