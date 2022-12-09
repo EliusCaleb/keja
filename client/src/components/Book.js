@@ -153,6 +153,7 @@ function  Book () {
           <Link className='btn btn-success'to={`/books/${hotel_id}`}>View</Link>
         </form>
       </div>
+     
       
     </div>
   )

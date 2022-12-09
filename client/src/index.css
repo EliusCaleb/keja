@@ -39,3 +39,12 @@ room form{
   margin-bottom: 10px; /* Added */
   width: 1024px;
 }
+.mainfooter{
+  margin: 0px auto;
+  width: 100%;
+  width: 1024px;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  justify-content: space-between;
+}

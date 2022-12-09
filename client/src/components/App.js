@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
+import Footer from "../pages/Footer";
 
 import Book from './Book';
 import Hotel from "./Hotel";
@@ -45,6 +46,11 @@ function App() {
 
       </Routes>
       </RoomProvider>
+      <hr/>
+      <div className="mainfooter">
+       <Footer/>
+
+      </div>
      
     </div>
   

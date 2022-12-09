@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "../styles/hotel.css";
 import Navbar from '../pages/Navbar';
 import Header from '../pages/Header';
-import Footer from '../pages/Footer';
 import { useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -197,7 +196,6 @@ function Hotel({ hotels }) {
 
 
         <hr />
-        <Footer />
       </div>
     </div>
   );
