@@ -17,7 +17,7 @@ function  Book () {
   const [end_date, setEndDate] = useState("")
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_title, setRoomTitle] = useState("")
-  const [ user_id, setUserId] = useState(0);
+  const [ user_id, setUserId] = useState("");
   const [ hotel_name, setHotelName ] = useState("")
   const [ hotel_id, setHotelId] = useState(0)
   
@@ -116,10 +116,10 @@ function  Book () {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="description">User</Label>
+            <Label htmlFor="user">User</Label>
             <Input
               type="number"
-              id="description"
+              id="user_id"
               value={user_id}
               onChange={(e) => setUserId(e.target.value)}
             />
@@ -135,7 +135,7 @@ function  Book () {
           </FormField>
           
           <FormField>
-            <Button color="primary" type="submit" onClick={() => addBook({start_date,end_date,room_number,room_title, hotel_name})}>
+            <Button color="primary" type="submit" onClick={() => addBook({start_date,end_date,room_number,room_title, hotel_name })}>
                
                {isLoading ? "Loading..." : "Reserve "}  
             </Button>
