@@ -16,9 +16,10 @@ function  Book () {
   const [start_date, setStartDate] = useState("2022-12-10");
   const [end_date, setEndDate] = useState("")
   const [ room_number,setRoomNumber ] = useState(0)
-  const [room_id, setRoomId] = useState(0)
+  const [room_title, setRoomTitle] = useState("")
   const [ user_id, setUserId] = useState(0);
-  const [ hotel_id, setHotelId ] = useState(0)
+  const [ hotel_name, setHotelName ] = useState("")
+  const [ hotel_id, setHotelId] = useState(0)
   
 
   function handleClick(e) {
@@ -29,8 +30,9 @@ function  Book () {
   
   useEffect(() => {
     if (location.state !== null){
-       setHotelId(location.state.hotel)
-       setRoomId(location.state.room)
+       setHotelId(location.state.hotelId)
+       setHotelName(location.state.hotel)
+       setRoomTitle(location.state.room)
        setRoomNumber(location.state.roomnumb)
     }
     
@@ -49,9 +51,9 @@ function  Book () {
         start_date,
         end_date,
         room_number,
-        room_id,
+        room_title,
          user_id,
-         hotel_id,
+         hotel_name,
      
       }),
     }).then((r) => {
@@ -105,12 +107,12 @@ function  Book () {
             />
           </FormField> 
           <FormField>
-            <Label htmlFor="max people">Room</Label>
+            <Label htmlFor="room title">Room</Label>
             <Input
-              type="number"
-              id="room_id"
-              value={room_id}
-              onChange={(e) => setRoomId(e.target.value)}
+              type="text"
+              id="room_title"
+              value={room_title}
+              onChange={(e) => setRoomTitle(e.target.value)}
             />
           </FormField>
           <FormField>
@@ -123,17 +125,17 @@ function  Book () {
             />
           </FormField>
           <FormField>
-            <Label htmlFor="hotel_id">Hotel</Label>
+            <Label htmlFor="hotel name">Hotel</Label>
             <Input
-              type="number"
-              id="hotel_id"
-              value={hotel_id}
-               onChange={(e) => setHotelId(e.target.value)}
+              type="text"
+              id="hotel name"
+              value={hotel_name}
+               onChange={(e) => setHotelName(e.target.value)}
             />
           </FormField>
           
           <FormField>
-            <Button color="primary" type="submit" onClick={() => addBook({start_date,end_date,room_number,room_id})}>
+            <Button color="primary" type="submit" onClick={() => addBook({start_date,end_date,room_number,room_title, hotel_name})}>
                
                {isLoading ? "Loading..." : "Reserve "}  
             </Button>

@@ -26,8 +26,8 @@ function RoomDetails() {
                         <div>
                             <h5 className="card-subtitle mb-2 text-muted"  >{booking.start_date}</h5>
                             <h5 className="card-subtitle mb-2 text-muted"> {booking.end_date}</h5>
-                            <h5 classname="card-subtitle mb-2 text-muted">{booking.hotel_id}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"> {booking.room_id}</h5>
+                            <h5 classname="card-subtitle mb-2 text-muted">{booking.hotel_name}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"> {booking.room_title}</h5>
                             <h5 className="card-subtitle mb-2 text-muted">{booking.room_number}</h5>
                         </div>
                     ))}

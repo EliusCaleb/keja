@@ -34,7 +34,8 @@ room form{
   align-items: center;
 }
 .roomcard {
-  margin: 0 auto; /* Added */
+  margin: 30px auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
+  width: 1024px;
 }

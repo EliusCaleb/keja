@@ -144,8 +144,9 @@ function Hotel({ hotels }) {
 
                                 <a className='btn btn-success mb-3' href='#/' onClick={()=>navigate("/books",{
                                  state:{ 
-                                     hotel: hotel.id,
-                                     room : room.id,
+                                    hotelId : hotel.id,
+                                     hotel: hotel.name,
+                                     room : room.title,
                                      roomnumb : room.room_number
                                  }
                                } )}>Books Now</a>
