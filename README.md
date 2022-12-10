@@ -10,9 +10,9 @@ Use the npm install to  react-app packages .
 Use bundle install to rails packages
 
 ```bash  for rails
- bundle install
- rails db:migrate db:seed
- rails s
+  bundle install
+  rails db:migrate db:seed
+  rails s
 ```
 
 

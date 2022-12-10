@@ -37,7 +37,7 @@ function App() {
     <div> 
       <RoomProvider>
       <Routes>
-        <Route path="/" element={<Home hotels= {hotels} />} />
+        <Route path="/" element={<Home hotels= {hotels}   user ={user} setUser ={setUser} />} />
         <Route path="/hotels/:id" element={<Hotel hotels={hotels} />} />
         <Route path="/rooms" element={<Room  />} /> 
         <Route path="/reviews" element={<Review  />} /> 

@@ -4,11 +4,11 @@ import Header from '../pages/Header'
 import Featured from '../pages/Featured'
 import "../styles/home.css"
 
-function Home({hotels}) {
+function Home({hotels, user, setUser }) {
  
     return (
         <div>
-          <Navbar />
+          <Navbar  user={user} setUser = {setUser} />
           <Header/>
           <div className="homeContainer">
             <Featured  hotels={hotels}/>
