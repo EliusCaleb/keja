@@ -13,8 +13,8 @@ function  Book () {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   
-  const [start_date, setStartDate] = useState("");
-  const [end_date, setEndDate] = useState("")
+  const [start_date, setStartDate] = useState("2022/12/23");
+  const [end_date, setEndDate] = useState("2023/01/01")
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_title, setRoomTitle] = useState("")
   const [ user_id, setUserId] = useState("");

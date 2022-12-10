@@ -25,7 +25,7 @@ function Review() {
     if (location.state !== null){
        setHotelId(location.state.hotel)
     }
-    fetch(`/reviews/:id`)
+    fetch(`/reviews`)
       .then((r) => r.json())
      .then((review) => setReview(review));
   }, [location ]);

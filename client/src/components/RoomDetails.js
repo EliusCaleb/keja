@@ -14,6 +14,7 @@ function RoomDetails() {
         navigate('/')
     }
 
+   
     
     return (
 
@@ -21,16 +22,17 @@ function RoomDetails() {
 
             < Navbar />
             < Header />
-            <div className="roomcard col d-flex justify-content-center" >
-                <div className="card-body">
+            <div className="roomcard col d-flex justify-content-center" key={bookings.id} >
+                <div className="card-body"  key={bookings.id}>
                     <h4 className="card-title">Bookings</h4>
                     {bookings.map((booking) => (
-                        <div>
-                            <h5 className="card-subtitle mb-2 text-muted"  >{booking.start_date}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"> {booking.end_date}</h5>
-                            <h5 classname="card-subtitle mb-2 text-muted">{booking.hotel_name}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"> {booking.room_title}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted">{booking.room_number}</h5>
+                        <div  key={booking.id}>
+                            <h5 className="card-subtitle mb-2 text-muted"   >{booking.start_date}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted" > {booking.end_date}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  >{booking.hotel_name}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  > {booking.room_title}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  >{booking.room_number}</h5>
+                            {/* <button className="btn btn-info mb-4 mr-3 " id={booking.id} key={booking.id} onClick={handleDelete}>{booking}</button> */}
                         </div>
                     ))}
 

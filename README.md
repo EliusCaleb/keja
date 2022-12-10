@@ -48,7 +48,7 @@ Users
 * User can log out 
 * User can see individual hotels 
 * User can routes into diferent pages  
-* User can view the booking  
+* User can view  the posted  booked room  
 * User can add the reviews and see them after refreshing  the app
 
 
