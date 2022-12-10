@@ -45,6 +45,7 @@ Users
  ## FUNCTIONALTY 
 
 * User can log in 
+* User can log out 
 * User can see individual hotels 
 * User can routes into diferent pages  
 * User can view the booking  

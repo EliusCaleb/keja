@@ -36,9 +36,6 @@ function RoomDetails() {
                 </div>
             </div>
 
-
-
-
         </>
     )
 }
