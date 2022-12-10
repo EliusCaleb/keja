@@ -13,7 +13,7 @@ function  Book () {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   
-  const [start_date, setStartDate] = useState("2022-12-10");
+  const [start_date, setStartDate] = useState("");
   const [end_date, setEndDate] = useState("")
   const [ room_number,setRoomNumber ] = useState(0)
   const [room_title, setRoomTitle] = useState("")
@@ -83,6 +83,7 @@ function  Book () {
             <Input
               type="text"
               id="title"
+              placeholder="YY/MM/DD"
               value={start_date}
               onChange={(e) => setStartDate(e.target.value)}
             />
@@ -92,6 +93,7 @@ function  Book () {
             <Input
               type="text"
               id="end_date"
+              placeholder="YY/MM/DD"
               value={end_date}
               onChange={(e) => setEndDate(e.target.value)}
             />
