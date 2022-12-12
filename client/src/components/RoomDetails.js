@@ -19,7 +19,6 @@ function RoomDetails() {
     return (
 
         <>
-
             < Navbar />
             < Header />
             <div className="roomcard col d-flex justify-content-center" key={bookings.id} >
@@ -27,12 +26,12 @@ function RoomDetails() {
                     <h4 className="card-title">Bookings</h4>
                     {bookings.map((booking) => (
                         <div  key={booking.id}>
-                            <h5 className="card-subtitle mb-2 text-muted"   >{booking.start_date}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted" > {booking.end_date}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"  >{booking.hotel_name}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"  > {booking.room_title}</h5>
-                            <h5 className="card-subtitle mb-2 text-muted"  >{booking.room_number}</h5>
-                            {/* <button className="btn btn-info mb-4 mr-3 " id={booking.id} key={booking.id} onClick={handleDelete}>{booking}</button> */}
+                            <h5 className="card-subtitle mb-2 text-muted"   >Start Date: {booking.start_date}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted" > Ending Date: {booking.end_date}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  > Hotel Name: {booking.hotel_name}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  >Room Type:   {booking.room_title}</h5>
+                            <h5 className="card-subtitle mb-2 text-muted"  >Room Number: {booking.room_number}</h5>
+                           
                         </div>
                     ))}
 
